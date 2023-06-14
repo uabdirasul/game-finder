@@ -27,4 +27,6 @@ const lastYearDateInFormat = `${currentYear - 1}-${currentMonth}-${currentDay}`;
 const nextYearDateInFormat = `${currentYear + 1}-${currentMonth}-${currentDay}`;
 
 // Popular Games
-export const popular_games_url = `${base_url}games?key=${api_key}&dates=${lastYearDateInFormat},${currentYearDateInFormat}&ordering=-rating&page_size`;
+export const popular_games_url = `${base_url}games?key=${api_key}&dates=${lastYearDateInFormat},${currentYearDateInFormat}&ordering=-rating&page_size=10`;
+export const upcoming_games_url = `${base_url}games?key=${api_key}&dates=${currentYearDateInFormat},${nextYearDateInFormat}&ordering=-added&page_size=10`;
+export const new_games_url = `${base_url}games?key=${api_key}&dates=${lastYearDateInFormat},${nextYearDateInFormat}&ordering=-released&page_size=10`;
