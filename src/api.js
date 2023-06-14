@@ -27,4 +27,4 @@ const lastYearDateInFormat = `${currentYear - 1}-${currentMonth}-${currentDay}`;
 const nextYearDateInFormat = `${currentYear + 1}-${currentMonth}-${currentDay}`;
 
 // Popular Games
-const popular_games_url = `${base_url}games?key=${api_key}&dates=${lastYearDateInFormat},${currentYearDateInFormat}&ordering=-rating&page_size`;
+export const popular_games_url = `${base_url}games?key=${api_key}&dates=${lastYearDateInFormat},${currentYearDateInFormat}&ordering=-rating&page_size`;
