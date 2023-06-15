@@ -11,7 +11,7 @@ function gamesReducer(state = initState, action) {
         ...state,
         popular: action.payload.popular,
         upcoming: action.payload.upcoming,
-        newGames: action.payload.new,
+        newGames: action.payload.newGames,
       };
 
     default:

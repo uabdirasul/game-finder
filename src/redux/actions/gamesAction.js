@@ -14,7 +14,7 @@ export const loadGames = () => async (dispatch) => {
     payload: {
       popular: popularGamesData.data.results,
       upcoming: upcomingGamesData.data.results,
-      new: newGamesData.data.results,
+      newGames: newGamesData.data.results,
     },
   });
 };
