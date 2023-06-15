@@ -14,7 +14,6 @@ function Home() {
 
   // Access Data
   const { popular, newGames, upcoming } = useSelector((state) => state.games);
-  console.log(popular, newGames, upcoming);
   return (
     <GameList>
       <h2>Upcoming Games</h2>
