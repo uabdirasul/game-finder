@@ -5,6 +5,16 @@ import { useSelector } from "react-redux";
 
 function GameDetail() {
   const { game, screenshots } = useSelector((state) => state.detail);
+  const platform_images = {
+    "PlayStation 5":
+      "https://oyster.ignimgs.com/wordpress/stg.ign.com/2020/01/PS5-Logo.png",
+    "Xbox Series S/X":
+      "https://cdn.segmentnextimages.com/wp-content/uploads/2020/09/Xbox-White-Logo-1536x864.jpg",
+    PC: "https://img.freepik.com/premium-vector/volumetric-personal-computer-system-unit-with-monitor-keyboard-color-icon_599062-61.jpg?w=740",
+    "Xbox One":
+      "https://news.xbox.com/en-us/wp-content/uploads/sites/2/xboxone_rgb_stacked2.png",
+    "PlayStation 4": "https://mcdn.wallpapersafari.com/medium/81/80/cO7WUE.jpg",
+  };
   return (
     <CardShadow>
       <div className="card-shadow">
@@ -15,12 +25,18 @@ function GameDetail() {
               <p>Rating: {game.rating}</p>
             </div>
             <div className="info">
-              <h3>Platforms</h3>
+              <h3>Platforms: </h3>
               <div className="platforms">
                 {game.platforms
                   ? game.platforms.map((data) => {
                       return (
-                        <h2 key={data.platform.id}>{data.platform.name}</h2>
+                        <div>
+                          <h4 key={data.platform.id}>{data.platform.name}</h4>
+                          <img
+                            src={platform_images[data.platform.name]}
+                            alt={data.platform.name}
+                          />
+                        </div>
                       );
                     })
                   : ""}
@@ -65,6 +81,42 @@ const CardShadow = styled(motion.div)`
   &::-webkit-scrollbar-thumb {
     background-color: blueviolet;
     border-radius: 2rem;
+  }
+
+  .rating h3 {
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+
+  .info h3 {
+    padding: 0;
+  }
+
+  .stats {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .platforms {
+    display: flex;
+    text-align: center;
+
+    h4,
+    img {
+      padding: 0.4rem;
+    }
+
+    h4 {
+      margin-bottom: 0.3rem;
+      margin-left: 0.3rem
+      padding: 0;
+    }
+
+    img {
+      width: 6rem;
+      height: 5rem;
+      border-radius: 50%;
+    }
   }
 `;
 
