@@ -6,11 +6,16 @@ import { loadDetail } from "../redux/actions/detailAction";
 
 function Game({ name, released, img, id }) {
   const dispatch = useDispatch();
-  function loadDetailHandler() {
+
+  function loadDetailHandler(id) {
     dispatch(loadDetail(id));
   }
   return (
-    <StyledGame onClick={loadDetailHandler}>
+    <StyledGame
+      onClick={() => {
+        loadDetailHandler(id);
+      }}
+    >
       <h3>Game Name: {name}</h3>
       <p>Released Date: {released}</p>
       <img src={img} alt={name} />
