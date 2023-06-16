@@ -49,26 +49,40 @@ function Home() {
       <h2>Popular Games</h2>
       <Games>
         {popular.map((game) => (
-          <Game
+          <div
             key={game.id}
-            name={game.name}
-            released={game.released}
-            img={game.background_image}
-            id={game.id}
-          />
+            onClick={() => {
+              setDetailVisibility(!detailVisibility);
+            }}
+          >
+            <Game
+              key={game.id}
+              name={game.name}
+              released={game.released}
+              img={game.background_image}
+              id={game.id}
+            />
+          </div>
         ))}
       </Games>
 
       <h2>New Games</h2>
       <Games>
         {newGames.map((game) => (
-          <Game
+          <div
             key={game.id}
-            name={game.name}
-            released={game.released}
-            img={game.background_image}
-            id={game.id}
-          />
+            onClick={() => {
+              setDetailVisibility(!detailVisibility);
+            }}
+          >
+            <Game
+              key={game.id}
+              name={game.name}
+              released={game.released}
+              img={game.background_image}
+              id={game.id}
+            />
+          </div>
         ))}
       </Games>
     </GameList>
