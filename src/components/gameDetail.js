@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 
 function GameDetail() {
   const { game, screenshots } = useSelector((state) => state.detail);
-  console.log(game);
   return (
     <CardShadow>
       <div className="card-shadow">
