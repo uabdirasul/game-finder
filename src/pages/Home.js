@@ -54,6 +54,7 @@ function Home() {
             name={game.name}
             released={game.released}
             img={game.background_image}
+            id={game.id}
           />
         ))}
       </Games>
@@ -66,6 +67,7 @@ function Home() {
             name={game.name}
             released={game.released}
             img={game.background_image}
+            id={game.id}
           />
         ))}
       </Games>
