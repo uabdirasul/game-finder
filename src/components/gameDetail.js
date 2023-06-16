@@ -18,9 +18,13 @@ function GameDetail() {
             <div className="info">
               <h3>Platforms</h3>
               <div className="platforms">
-                {game.platforms.map((data) => {
-                  return <h2 key={data.platform.id}>{data.platform.name}</h2>;
-                })}
+                {game.platforms
+                  ? game.platforms.map((data) => {
+                      return (
+                        <h2 key={data.platform.id}>{data.platform.name}</h2>
+                      );
+                    })
+                  : ""}
               </div>
             </div>
           </div>
@@ -28,15 +32,17 @@ function GameDetail() {
             <img src={game.background_image} alt={game.name} />
           </div>
           <div className="gallery">
-            {screenshots.results.map((screenshot) => {
-              return (
-                <img
-                  key={screenshot.id}
-                  src={screenshot.image}
-                  alt={game.name}
-                />
-              );
-            })}
+            {screenshots.results
+              ? screenshots.results.map((screenshot) => {
+                  return (
+                    <img
+                      key={screenshot.id}
+                      src={screenshot.image}
+                      alt={game.name}
+                    />
+                  );
+                })
+              : ""}
           </div>
         </CardDetail>
       </div>

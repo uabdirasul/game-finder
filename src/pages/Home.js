@@ -7,6 +7,8 @@ import { motion } from "framer-motion";
 import GameDetail from "../components/gameDetail";
 
 function Home() {
+  const [detailVisibility, setDetailVisibility] = useState(false);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -16,18 +18,31 @@ function Home() {
   // Access Data
   const { popular, newGames, upcoming } = useSelector((state) => state.games);
   return (
-    <GameList>
-      {/* <GameDetail /> */}
+    <GameList
+      onClick={() => {
+        if (detailVisibility) {
+          setDetailVisibility(!detailVisibility);
+        }
+      }}
+    >
+      {detailVisibility ? <GameDetail /> : ""}
       <h2>Upcoming Games</h2>
       <Games>
         {upcoming.map((game) => (
-          <Game
+          <div
             key={game.id}
-            name={game.name}
-            released={game.released}
-            img={game.background_image}
-            id={game.id}
-          />
+            onClick={() => {
+              setDetailVisibility(!detailVisibility);
+            }}
+          >
+            <Game
+              key={game.id}
+              name={game.name}
+              released={game.released}
+              img={game.background_image}
+              id={game.id}
+            />
+          </div>
         ))}
       </Games>
 
