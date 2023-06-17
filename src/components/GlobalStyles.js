@@ -42,6 +42,30 @@ const GlobalStyles = createGlobalStyle`
     text-decoration: none;
     color: #000;
   }
+
+  @media only screen and (max-width: 1100px) {
+    html {
+      font-size: 14px;
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    html {
+      font-size: 11px;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    html {
+      font-size: 8px;
+    }
+  }
+
+  @media only screen and (max-width: 400px) {
+    html {
+      font-size: 7px;
+    }
+  }
 `;
 
 export default GlobalStyles;

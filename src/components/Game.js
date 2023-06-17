@@ -24,16 +24,26 @@ function Game({ name, released, img, id }) {
 }
 
 const StyledGame = styled(motion.div)`
-  min-height: 30vh;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   text-align: center;
   border-radius: 1rem;
+
+  h3 {
+    height: 3.5rem;
+    font-size: 1.2rem;
+    line-height: 1.3rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+  }
+
   img {
     width: 100%;
-    height: 35vh;
     object-fit: cover;
     border-bottom-right-radius: 1rem;
     border-bottom-left-radius: 1rem;
+    min-height: 35vh;
   }
 `;
 

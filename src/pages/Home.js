@@ -92,14 +92,28 @@ function Home() {
 const GameList = styled(motion.div)`
   padding: 0 5rem;
   h2 {
-    padding: 5rem 0;
+    padding: 3rem 0;
+    font-size: 2rem;
+  }
+
+  @media only screen and (max-width: 380px) {
+    padding: 3rem;
+  }
+
+  @media only screen and (max-width: 300px) {
+    padding: 1rem;
   }
 `;
 const Games = styled(motion.div)`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-column-gap: 3rem;
   grid-row-gap: 5rem;
+
+  @media only screen and (max-width: 380px) {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-row-gap: 2rem;
+  }
 `;
 
 export default Home;
