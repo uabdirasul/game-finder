@@ -30,7 +30,7 @@ function GameDetail() {
                 {game.platforms
                   ? game.platforms.map((data) => {
                       return (
-                        <div>
+                        <div className="platforms-wrapper">
                           <h4 key={data.platform.id}>{data.platform.name}</h4>
                           <img
                             src={platform_images[data.platform.name]}
@@ -47,6 +47,7 @@ function GameDetail() {
             <img src={game.background_image} alt={game.name} />
           </div>
           <div className="gallery">
+            <h3>Game Screenshots:</h3>
             {screenshots.results
               ? screenshots.results.map((screenshot) => {
                   return (
@@ -90,6 +91,7 @@ const CardShadow = styled(motion.div)`
 
   .info h3 {
     padding: 0;
+    text-align: center;
   }
 
   .stats {
@@ -113,9 +115,34 @@ const CardShadow = styled(motion.div)`
     }
 
     img {
-      width: 6rem;
-      height: 5rem;
+      width: 4rem;
+      height: 3rem;
       border-radius: 50%;
+    }
+
+    .platforms-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items:center;
+    }
+  }
+
+  @media only screen and (max-width: 700px) {
+    .stats {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .rating {
+      text-align: center;
+
+      h3 {
+        margin-bottom: 0rem;
+      }
+
+      p {
+        margin-bottom: 1rem;
+      }
     }
   }
 `;
@@ -123,13 +150,31 @@ const CardShadow = styled(motion.div)`
 const CardDetail = styled(motion.div)`
   width: 90%;
   border-radius: 1rem;
-  padding: 2rem 20rem;
+  padding: 2rem 4rem;
   position: absolute;
   background-color: #fff;
   left: 5%;
   color: #000;
+
+  .gallery,
+  .media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gallery h3 {
+    padding-top: 2rem;
+  }
+
+  .media img {
+    width: 90%;
+  }
+
   img {
-    width: 100%;
+    width: 70%;
+    display: block;
+    margin: 1rem 0;
   }
 `;
 
