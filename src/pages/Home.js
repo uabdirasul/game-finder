@@ -5,6 +5,7 @@ import Game from "../components/Game";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import GameDetail from "../components/gameDetail";
+import Header from "../components/Header";
 
 function Home() {
   const [detailVisibility, setDetailVisibility] = useState(false);
@@ -18,74 +19,77 @@ function Home() {
   // Access Data
   const { popular, newGames, upcoming } = useSelector((state) => state.games);
   return (
-    <GameList
-      onClick={() => {
-        if (detailVisibility) {
-          setDetailVisibility(!detailVisibility);
-        }
-      }}
-    >
-      {detailVisibility ? <GameDetail /> : ""}
-      <h2>Upcoming Games</h2>
-      <Games>
-        {upcoming.map((game) => (
-          <div
-            key={game.id}
-            onClick={() => {
-              setDetailVisibility(!detailVisibility);
-            }}
-          >
-            <Game
+    <div>
+      <Header />
+      <GameList
+        onClick={() => {
+          if (detailVisibility) {
+            setDetailVisibility(!detailVisibility);
+          }
+        }}
+      >
+        {detailVisibility ? <GameDetail /> : ""}
+        <h2>Upcoming Games</h2>
+        <Games>
+          {upcoming.map((game) => (
+            <div
               key={game.id}
-              name={game.name}
-              released={game.released}
-              img={game.background_image}
-              id={game.id}
-            />
-          </div>
-        ))}
-      </Games>
+              onClick={() => {
+                setDetailVisibility(!detailVisibility);
+              }}
+            >
+              <Game
+                key={game.id}
+                name={game.name}
+                released={game.released}
+                img={game.background_image}
+                id={game.id}
+              />
+            </div>
+          ))}
+        </Games>
 
-      <h2>Popular Games</h2>
-      <Games>
-        {popular.map((game) => (
-          <div
-            key={game.id}
-            onClick={() => {
-              setDetailVisibility(!detailVisibility);
-            }}
-          >
-            <Game
+        <h2>Popular Games</h2>
+        <Games>
+          {popular.map((game) => (
+            <div
               key={game.id}
-              name={game.name}
-              released={game.released}
-              img={game.background_image}
-              id={game.id}
-            />
-          </div>
-        ))}
-      </Games>
+              onClick={() => {
+                setDetailVisibility(!detailVisibility);
+              }}
+            >
+              <Game
+                key={game.id}
+                name={game.name}
+                released={game.released}
+                img={game.background_image}
+                id={game.id}
+              />
+            </div>
+          ))}
+        </Games>
 
-      <h2>New Games</h2>
-      <Games>
-        {newGames.map((game) => (
-          <div
-            key={game.id}
-            onClick={() => {
-              setDetailVisibility(!detailVisibility);
-            }}
-          >
-            <Game
+        <h2>New Games</h2>
+        <Games>
+          {newGames.map((game) => (
+            <div
               key={game.id}
-              name={game.name}
-              released={game.released}
-              img={game.background_image}
-              id={game.id}
-            />
-          </div>
-        ))}
-      </Games>
-    </GameList>
+              onClick={() => {
+                setDetailVisibility(!detailVisibility);
+              }}
+            >
+              <Game
+                key={game.id}
+                name={game.name}
+                released={game.released}
+                img={game.background_image}
+                id={game.id}
+              />
+            </div>
+          ))}
+        </Games>
+      </GameList>
+    </div>
   );
 }
 
